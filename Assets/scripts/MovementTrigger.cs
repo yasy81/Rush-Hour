@@ -8,6 +8,13 @@ public class MovementTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        CanMove = false;
         
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        CanMove = true;
+    }
 }
+  

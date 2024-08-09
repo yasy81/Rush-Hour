@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+   
     private Car _selectedCar = null;
 
     // Update is called once per frame
@@ -18,14 +19,14 @@ public class InputManager : MonoBehaviour
          
          if (_selectedCar)
          {
-            if(_selectedCar.IsMoving = false)
+            if(_selectedCar.IsMoving == false)
             {
-                if(Input.GetKeyDown(KeyCode.UpArrow)||Input.GetKey(KeyCode.W))
+                if(Input.GetAxis("Vertical") > 0)
                 {
                     StartCoroutine(_selectedCar.MoveOneUnitUp());
                 }
 
-                if(Input.GetKeyDown(KeyCode.DownArrow)||Input.GetKeyDown(KeyCode.S))
+                if(Input.GetAxis("Vertical") < 0)
                 {
                     StartCoroutine(_selectedCar.MoveOneUnitDown());
                 }
