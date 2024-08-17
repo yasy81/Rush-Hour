@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraSwitch : MonoBehaviour
@@ -9,7 +7,6 @@ public class CameraSwitch : MonoBehaviour
     
     void Update()
     {
-        
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             cam1.SetActive(true);
@@ -26,4 +23,6 @@ public class CameraSwitch : MonoBehaviour
             cam2.tag = "MainCamera";
         }
     }
+
+   
 }
