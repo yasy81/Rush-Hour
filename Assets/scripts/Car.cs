@@ -12,6 +12,31 @@ public class Car : MonoBehaviour
     public bool ClickedOn {get; set; }
     [SerializeField] private Rigidbody rigidbody;
     public bool IsMoving{get; set; } = false;
+
+    private AudioSource engineSound;
+
+    private void Awake()
+    {
+        engineSound = GetComponent<AudioSource>(); // Get the AudioSource component
+    }
+
+    private void Update()
+    {
+        HandleEngineSound();
+    }
+
+    private void HandleEngineSound()
+    {
+        // Check if the car can move and is currently moving
+        if (IsMoving && (frontTrigger.CanMove || backTrigger.CanMove) && !engineSound.isPlaying)
+        {
+            engineSound.Play(); // Start playing the engine sound
+        }
+        else if ((!IsMoving || (!frontTrigger.CanMove && !backTrigger.CanMove)) && engineSound.isPlaying)
+        {
+            engineSound.Stop(); // Stop playing the engine sound
+        }
+    }
     public IEnumerator MoveOneUnitUp()
     {
         if (frontTrigger.CanMove == false) 
