@@ -51,17 +51,4 @@ public class Car : MonoBehaviour
         IsMoving = false;
     }
 
-   
-    public IEnumerator MoveOneUnit()
-    {
-        Vector3 startingPos = transform.position;
-
-        while(Vector3.Distance(startingPos, transform.position) < movementUnit)
-        {
-            rigidbody.MovePosition(rigidbody.position + transform.forward *(speed * Time.deltaTime));
-
-            yield return null; 
-        }
-        
-    }
 }

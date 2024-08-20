@@ -11,36 +11,38 @@ public class FinishLine : MonoBehaviour
     {
         if (collision.tag == "Car")
         {
-            //UnlockedNewLevel();
+            UnlockNewLevel();
             ButterflyConfetti.SetActive(true); 
-            ButterflyConfetti1.SetActive(true);// Activate the ButterflyConfetti
-            StartCoroutine(WaitAndLoadNextScene()); // Start the coroutine to wait and then load the next scene
+            ButterflyConfetti1.SetActive(true);
+            StartCoroutine(WaitAndLoadNextScene()); 
         }
     }
 
     private IEnumerator WaitAndLoadNextScene()
     {
-        // Wait until ButterflyConfetti is active
+        
         while (!ButterflyConfetti.activeInHierarchy)
         {
-            yield return null; // Wait for the next frame
+            yield return null; 
         }
 
-        // Wait for an additional 3 seconds
+        
         yield return new WaitForSeconds(3f);
 
-        // Load the next scene
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    /*
+    
     void UnlockNewLevel()
     {
         if(SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
         {
-            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActive().buildIndex+1);
-            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel" , 1));
+            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex+1);
+            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel" , 1)+ 1);
             PlayerPrefs.Save();
         }
-    }*/
+    }
+
+    
 }

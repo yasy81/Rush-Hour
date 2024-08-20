@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour
                 //Debug.Log(message: "Car Clicked");
 
                 _selectedCar = raycastHit.transform.GetComponent<Car>();
-                //StartCoroutine(_selectedCar.MoveOneUnit());
+                
             }
     }      
 }
