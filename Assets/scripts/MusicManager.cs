@@ -3,14 +3,18 @@ using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {
-    public AudioSource music;
+    private AudioSource music;
+    public GameObject ObjectMusic;
 
     public Slider volumeSlider;
     private float MusicVolume = 1f;
 
+
     private void Start()
     {
-        music.Play();
+        ObjectMusic = GameObject.FindWithTag("GameMusic");
+        music = ObjectMusic.GetComponent<AudioSource>();
+
         MusicVolume = PlayerPrefs.GetFloat("volume",1f);
         music.volume = MusicVolume;
         volumeSlider.value = MusicVolume;
