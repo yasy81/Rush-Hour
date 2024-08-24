@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
+
+   // public WheelColliders colliders;
+
+   // public WheelMeshes wheelMeshes;
     [SerializeField] private float speed = 10f;
     [SerializeField] public float movementUnit = 3f;
 
@@ -23,6 +27,9 @@ public class Car : MonoBehaviour
     private void Update()
     {
         HandleEngineSound();
+        //ApplyWheelPositions();
+        /*MoveOneUnitDown();
+        MoveOneUnitUp();*/
     }
 
     private void HandleEngineSound()
@@ -75,5 +82,42 @@ public class Car : MonoBehaviour
         }
         IsMoving = false;
     }
+
+    /*
+
+    void ApplyWheelPositions()
+    {
+        UpdateWheel(colliders.FRWheel,wheelMeshes.FRWheel);
+        UpdateWheel(colliders.FLWheel,wheelMeshes.FLWheel);
+        UpdateWheel(colliders.RRWheel,wheelMeshes.RRWheel);
+        UpdateWheel(colliders.RLWheel,wheelMeshes.RLWheel);
+    }
+
+    void UpdateWheel(WheelCollider coll, MeshRenderer wheelMesh)
+    {
+        Quaternion quat;
+        Vector3 position;
+        coll.GetWorldPose(out position, out quat);
+        wheelMesh.transform.position = position;
+        wheelMesh.transform.rotation = quat;
+    }
+
+    [System.Serializable]
+    public class WheelColliders
+    {
+        public WheelCollider FRWheel;
+        public WheelCollider FLWheel;
+        public WheelCollider RRWheel;
+        public WheelCollider RLWheel;
+    }
+
+    [System.Serializable]
+    public class WheelMeshes
+    {
+        public MeshRenderer FRWheel;
+        public MeshRenderer FLWheel;
+        public MeshRenderer RRWheel;
+        public MeshRenderer RLWheel;
+    } */
 
 }

@@ -4,22 +4,57 @@ using UnityEngine.UI;
 public class OptionsMenu : MonoBehaviour
 {
     [SerializeField] private Slider engineVolumeSlider;
+    [SerializeField] private Slider musicVolumeSlider;
+
+    private const string EngineVolumePrefKey = "EngineVolume";
+    private const string MusicVolumePrefKey = "MusicVolume";
+
+    private MusicManager musicManager;
 
     private void Start()
     {
-        // Initialize the slider value based on PlayerPrefs or a default value
-        engineVolumeSlider.value = PlayerPrefs.GetFloat("EngineVolume", 1f);
+        // Initialize the slider values based on PlayerPrefs or default values
+        engineVolumeSlider.value = PlayerPrefs.GetFloat(EngineVolumePrefKey, 1f);
+        musicVolumeSlider.value = PlayerPrefs.GetFloat(MusicVolumePrefKey, 1f);
 
-        // Update the volume at the start
+        // Find the MusicManager instance in the scene
+        musicManager = FindObjectOfType<MusicManager>();
+
+        // Update the volumes at the start
         SetEngineVolume(engineVolumeSlider.value);
+        SetMusicVolume(musicVolumeSlider.value);
 
-        // Add a listener to the slider to call the method whenever the slider value changes
+        // Add listeners to the sliders to call the methods whenever the slider values change
         engineVolumeSlider.onValueChanged.AddListener(SetEngineVolume);
+        musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
     }
 
     private void SetEngineVolume(float volume)
     {
-        // Save the volume setting
-        PlayerPrefs.SetFloat("EngineVolume", volume);
+        PlayerPrefs.SetFloat(EngineVolumePrefKey, volume);
+        ApplyVolumeToEngineAudioSources(volume);
+    }
+
+    private void SetMusicVolume(float volume)
+    {
+        PlayerPrefs.SetFloat(MusicVolumePrefKey, volume);
+
+        if (musicManager != null)
+        {
+            musicManager.SetMusicVolume(volume);
+        }
+    }
+
+    private void ApplyVolumeToEngineAudioSources(float volume)
+    {
+        Car[] cars = FindObjectsOfType<Car>();
+        foreach (Car car in cars)
+        {
+            AudioSource audioSource = car.GetComponent<AudioSource>();
+            if (audioSource != null)
+            {
+                audioSource.volume = volume;
+            }
+        }
     }
 }
