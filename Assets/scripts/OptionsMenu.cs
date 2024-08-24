@@ -6,8 +6,8 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider engineVolumeSlider;
     [SerializeField] private Slider musicVolumeSlider;
 
-    private const string EngineVolumePrefKey = "EngineVolume";
-    private const string MusicVolumePrefKey = "MusicVolume";
+    private const string EngineVolumePrefKey = "EngineVolume"; // Unified key for engine volume
+    private const string MusicVolumePrefKey = "MusicVolume";   // Key for music volume
 
     private MusicManager musicManager;
 
@@ -32,12 +32,14 @@ public class OptionsMenu : MonoBehaviour
     private void SetEngineVolume(float volume)
     {
         PlayerPrefs.SetFloat(EngineVolumePrefKey, volume);
+        PlayerPrefs.Save(); // Ensure the changes are saved immediately
         ApplyVolumeToEngineAudioSources(volume);
     }
 
     private void SetMusicVolume(float volume)
     {
         PlayerPrefs.SetFloat(MusicVolumePrefKey, volume);
+        PlayerPrefs.Save(); // Ensure the changes are saved immediately
 
         if (musicManager != null)
         {
@@ -54,6 +56,7 @@ public class OptionsMenu : MonoBehaviour
             if (audioSource != null)
             {
                 audioSource.volume = volume;
+                Debug.Log($"Engine volume set to {volume} on Car {car.name}");
             }
         }
     }

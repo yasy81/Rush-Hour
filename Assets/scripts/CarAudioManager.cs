@@ -2,10 +2,18 @@ using UnityEngine;
 
 public class CarAudioManager : MonoBehaviour
 {
+    private const string EngineVolumePrefKey = "EngineVolume"; // Unified key for engine volume
+
     private void Start()
     {
+        // Apply the saved engine volume at the start of the scene
+        ApplySavedVolume();
+    }
+
+    public void ApplySavedVolume()
+    {
         // Retrieve the saved engine volume setting
-        float savedEngineVolume = PlayerPrefs.GetFloat("EngineSliderValue", 0.5f); // Default to 0.5f
+        float savedEngineVolume = PlayerPrefs.GetFloat(EngineVolumePrefKey, 0.5f); // Default to 0.5f
 
         // Find all cars in the scene
         Car[] cars = FindObjectsOfType<Car>();
