@@ -1936,6 +1936,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &288468544 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5558537458106543026, guid: 21640b15028ec40cda157a5547af5283, type: 3}
+  m_PrefabInstance: {fileID: 7270161306559827959}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288468540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &298098237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56792,6 +56803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   engineVolumeSlider: {fileID: 1789487238}
+  musicVolumeSlider: {fileID: 288468544}
 --- !u!1 &779483849
 GameObject:
   m_ObjectHideFlags: 0
@@ -58581,7 +58593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicAudioSource: {fileID: 288468543}
-  backgroundMusicClip: {fileID: 0}
+  backgroundMusicClip: {fileID: 8300000, guid: 2dabebd4c84394df083530274a82cbe3, type: 3}
 --- !u!4 &1143203216
 Transform:
   m_ObjectHideFlags: 0
@@ -65960,8 +65972,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ba223199ece402a8dc5870664132b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
-  audioSources: []
+  engineSlider: {fileID: 1789487238}
+  engineAudioSources:
+  - {fileID: 1983483304}
+  - {fileID: 1885916152}
+  - {fileID: 30964112}
+  - {fileID: 1189451405}
+  - {fileID: 1967353990}
+  - {fileID: 908136031}
+  - {fileID: 2092808274}
+  - {fileID: 491052031}
+  - {fileID: 1622178668}
 --- !u!4 &1813058695
 Transform:
   m_ObjectHideFlags: 0
