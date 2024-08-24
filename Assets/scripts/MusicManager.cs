@@ -1,8 +1,46 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {
-    private static MusicManager instance;
+    public AudioSource music;
+
+    public Slider volumeSlider;
+    private float MusicVolume = 1f;
+
+    private void Start()
+    {
+        music.Play();
+        MusicVolume = PlayerPrefs.GetFloat("volume",1f);
+        music.volume = MusicVolume;
+        volumeSlider.value = MusicVolume;
+
+        volumeSlider.onValueChanged.AddListener(VolumeUpdater);
+        
+    }
+
+    private void Update()
+    {
+        music.volume = MusicVolume;
+        PlayerPrefs.SetFloat("volume", MusicVolume);
+        
+    }
+
+    public void VolumeUpdater(float volume)
+    {
+        MusicVolume = volume;
+    }
+
+
+
+
+
+
+
+
+
+
+    /*private static MusicManager instance;
 
     [SerializeField] private AudioSource musicAudioSource;
     [SerializeField] private AudioClip backgroundMusicClip;
@@ -47,5 +85,5 @@ public class MusicManager : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         musicAudioSource.volume = volume;
-    }
+    }*/
 }
