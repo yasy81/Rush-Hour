@@ -9,24 +9,18 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
+        // Singleton pattern to ensure only one instance of MusicManager exists
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject); // Persist across scenes
-            InitializeMusic();
+            InitializeMusic(); // Initialize music settings
         }
         else
         {
             Destroy(gameObject); // Prevent duplicate instances
         }
     }
-
-    private void Start()
-    {
-        InitializeMusic();
-    }
-
-    
 
     private void InitializeMusic()
     {
@@ -43,7 +37,11 @@ public class MusicManager : MonoBehaviour
         float savedMusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
         SetMusicVolume(savedMusicVolume);
 
-        musicAudioSource.Play(); // Start playing music immediately
+        // Start playing music if it's not already playing
+        if (!musicAudioSource.isPlaying)
+        {
+            musicAudioSource.Play();
+        }
     }
 
     public void SetMusicVolume(float volume)

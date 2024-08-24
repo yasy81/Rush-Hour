@@ -33,7 +33,8 @@ public class OptionsMenu : MonoBehaviour
     {
         PlayerPrefs.SetFloat(EngineVolumePrefKey, volume);
         PlayerPrefs.Save(); // Ensure the changes are saved immediately
-        ApplyVolumeToEngineAudioSources(volume);
+
+        // You don't need to apply the engine volume here if the engine sound is not supposed to play in the options menu
     }
 
     private void SetMusicVolume(float volume)
@@ -44,20 +45,6 @@ public class OptionsMenu : MonoBehaviour
         if (musicManager != null)
         {
             musicManager.SetMusicVolume(volume);
-        }
-    }
-
-    private void ApplyVolumeToEngineAudioSources(float volume)
-    {
-        Car[] cars = FindObjectsOfType<Car>();
-        foreach (Car car in cars)
-        {
-            AudioSource audioSource = car.GetComponent<AudioSource>();
-            if (audioSource != null)
-            {
-                audioSource.volume = volume;
-                Debug.Log($"Engine volume set to {volume} on Car {car.name}");
-            }
         }
     }
 }
