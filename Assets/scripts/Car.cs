@@ -16,32 +16,33 @@ public class Car : MonoBehaviour
     public bool ClickedOn {get; set; }
     [SerializeField] private Rigidbody rigidbody;
     public bool IsMoving{get; set; } = false;
+    
 
-    private AudioSource engineSound;
+    private AudioSource engineAudioSource;
 
     private void Awake()
     {
-        engineSound = GetComponent<AudioSource>(); // Get the AudioSource component
+        engineAudioSource = GetComponent<AudioSource>(); 
     }
 
     private void Update()
     {
-        HandleEngineSound();
+        HandleEngineAudioSource();
         //ApplyWheelPositions();
         /*MoveOneUnitDown();
         MoveOneUnitUp();*/
     }
 
-    private void HandleEngineSound()
+    private void HandleEngineAudioSource()
     {
         // Check if the car can move and is currently moving
-        if (IsMoving && (frontTrigger.CanMove || backTrigger.CanMove) && !engineSound.isPlaying)
+        if (IsMoving && (frontTrigger.CanMove || backTrigger.CanMove) && !engineAudioSource.isPlaying)
         {
-            engineSound.Play(); // Start playing the engine sound
+            engineAudioSource.Play(); // Start playing the engine sound
         }
-        else if ((!IsMoving || (!frontTrigger.CanMove && !backTrigger.CanMove)) && engineSound.isPlaying)
+        else if ((!IsMoving || (!frontTrigger.CanMove && !backTrigger.CanMove)) && engineAudioSource.isPlaying)
         {
-            engineSound.Stop(); // Stop playing the engine sound
+            engineAudioSource.Stop(); // Stop playing the engine sound
         }
     }
     public IEnumerator MoveOneUnitUp()

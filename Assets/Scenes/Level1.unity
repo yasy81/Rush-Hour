@@ -56702,7 +56702,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   engineVolumeSlider: {fileID: 1789487238}
-  engineAudioSource: {fileID: 1789487239}
 --- !u!1 &779483849
 GameObject:
   m_ObjectHideFlags: 0
@@ -58521,7 +58520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ba223199ece402a8dc5870664132b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  engineSlider: {fileID: 1789487238}
+  engineVolumeSlider: {fileID: 0}
+  engineAudioSource: {fileID: 0}
 --- !u!1001 &1147688659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65982,7 +65982,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ba223199ece402a8dc5870664132b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  engineSlider: {fileID: 1789487238}
+  engineVolumeSlider: {fileID: 1789487238}
+  engineAudioSource: {fileID: 1789487239}
 --- !u!4 &1813058695
 Transform:
   m_ObjectHideFlags: 0
