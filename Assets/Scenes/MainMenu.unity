@@ -3781,7 +3781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a425151d88724c4fb965b1ab7fef8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 1526352415}
+  ObjectMusic: {fileID: 0}
   volumeSlider: {fileID: 1774981057}
 --- !u!1001 &1774981055
 PrefabInstance:
@@ -4571,7 +4571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   engineVolumeSlider: {fileID: 1827079470}
-  engineAudioSource: {fileID: 0}
+  engineAudioSource: {fileID: 1827079471}
 --- !u!1 &2062331333
 GameObject:
   m_ObjectHideFlags: 0

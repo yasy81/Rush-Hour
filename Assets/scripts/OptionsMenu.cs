@@ -6,7 +6,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider engineVolumeSlider;
     //[SerializeField] private Slider musicVolumeSlider;
 
-    //[SerializeField] private AudioSource[] engineAudioSource;
+    [SerializeField] private AudioSource engineAudioSource;
 
     private const string EngineVolumePrefKey = "EngineVolume"; // Unified key for engine volume
    //private const string MusicVolumePrefKey = "MusicVolume";   // Key for music volume
