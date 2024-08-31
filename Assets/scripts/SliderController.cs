@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.UI;
 
 public class SliderController : MonoBehaviour
@@ -24,3 +24,4 @@ public class SliderController : MonoBehaviour
         PlayerPrefs.Save(); // Ensure the changes are written immediately
     }
 }
+*/

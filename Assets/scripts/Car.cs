@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Car : MonoBehaviour
@@ -19,10 +20,26 @@ public class Car : MonoBehaviour
     
 
     private AudioSource engineAudioSource;
-
+    [SerializeField] private Slider volumeSlider;
+   
     private void Awake()
     {
         engineAudioSource = GetComponent<AudioSource>(); 
+
+        if (PlayerPrefs.HasKey("EngineVolume"))
+        {
+            engineAudioSource.volume = PlayerPrefs.GetFloat("EngineVolume");
+        }
+
+        volumeSlider.onValueChanged.AddListener(SetEngineVolume);
+    }
+    
+    private void SetEngineVolume(float volume)
+    {
+        if (PlayerPrefs.HasKey("EngineVolume"))
+        {
+            engineAudioSource.volume = PlayerPrefs.GetFloat("EngineVolume");
+        }
     }
 
     private void Update()
@@ -35,6 +52,7 @@ public class Car : MonoBehaviour
 
     private void HandleEngineAudioSource()
     {
+        
         // Check if the car can move and is currently moving
         if (IsMoving && (frontTrigger.CanMove || backTrigger.CanMove) && !engineAudioSource.isPlaying)
         {
@@ -44,6 +62,8 @@ public class Car : MonoBehaviour
         {
             engineAudioSource.Stop(); // Stop playing the engine sound
         }
+
+        
     }
     public IEnumerator MoveOneUnitUp()
     {
@@ -83,6 +103,7 @@ public class Car : MonoBehaviour
         }
         IsMoving = false;
     }
+    
     
     /*
 
