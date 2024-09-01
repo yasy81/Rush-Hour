@@ -6,9 +6,9 @@ using UnityEngine;
 public class Car : MonoBehaviour
 {
 
-   // public WheelColliders colliders;
+    public WheelColliders colliders;
 
-   // public WheelMeshes wheelMeshes;
+    public WheelMeshes wheelMeshes;
     [SerializeField] private float speed = 10f;
     [SerializeField] public float movementUnit = 3f;
 
@@ -45,7 +45,7 @@ public class Car : MonoBehaviour
     private void Update()
     {
         HandleEngineAudioSource();
-        //ApplyWheelPositions();
+        ApplyWheelPositions();
         /*MoveOneUnitDown();
         MoveOneUnitUp();*/
     }
@@ -105,7 +105,7 @@ public class Car : MonoBehaviour
     }
     
     
-    /*
+    
 
     void ApplyWheelPositions()
     {
@@ -117,11 +117,36 @@ public class Car : MonoBehaviour
 
     void UpdateWheel(WheelCollider coll, MeshRenderer wheelMesh)
     {
-        Quaternion quat;
         Vector3 position;
-        coll.GetWorldPose(out position, out quat);
+        Quaternion rotation;
+        coll.GetWorldPose(out position, out rotation);
+    
+        // Update wheel mesh position and rotation
         wheelMesh.transform.position = position;
-        wheelMesh.transform.rotation = quat;
+        wheelMesh.transform.rotation = rotation;
+
+        float motorTorque = 0f; // Default to no torque
+
+        // Apply torque based on movement triggers
+        if (IsMoving)
+        {
+            if (frontTrigger.CanMove)
+            {
+                motorTorque = 10f; // Forward movement
+            }
+            else if (backTrigger.CanMove)
+            {
+                motorTorque = -10f; // Backward movement
+            }
+            else if (IsMoving == false)
+            {
+                 motorTorque = 0;
+            }
+        }
+        
+
+        coll.motorTorque = motorTorque;
+        
     }
 
     [System.Serializable]
@@ -140,6 +165,6 @@ public class Car : MonoBehaviour
         public MeshRenderer FLWheel;
         public MeshRenderer RRWheel;
         public MeshRenderer RLWheel;
-    } */
+    } 
 
 }
