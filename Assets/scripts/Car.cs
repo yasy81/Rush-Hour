@@ -132,17 +132,18 @@ public class Car : MonoBehaviour
         {
             if (frontTrigger.CanMove)
             {
-                motorTorque = 10f; // Forward movement
+                motorTorque = 10; // Forward movement
             }
             else if (backTrigger.CanMove)
             {
-                motorTorque = -10f; // Backward movement
+                motorTorque = -10; // Backward movement
             }
             else if (IsMoving == false)
             {
-                 motorTorque = 0;
+            motorTorque = 0;
             }
         }
+        
         
 
         coll.motorTorque = motorTorque;
