@@ -2146,50 +2146,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820065074}
   m_CullTransparentMesh: 1
---- !u!1 &834366828
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 834366830}
-  - component: {fileID: 834366829}
-  m_Layer: 0
-  m_Name: SliderController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &834366829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834366828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9ba223199ece402a8dc5870664132b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &834366830
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834366828}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.741249, y: 161.33818, z: -15.810425}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &903796230
 GameObject:
   m_ObjectHideFlags: 0
@@ -2599,7 +2555,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1089359215}
   - component: {fileID: 1089359214}
-  - component: {fileID: 1089359216}
   m_Layer: 0
   m_Name: EngineSource
   m_TagString: CarEngine
@@ -2718,18 +2673,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1089359216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1089359212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c179ed03aedf42c5b2f9506514edc84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1172342922
 GameObject:
   m_ObjectHideFlags: 0
@@ -5021,7 +4964,6 @@ SceneRoots:
   - {fileID: 45013402}
   - {fileID: 1759687110}
   - {fileID: 1526352416}
-  - {fileID: 834366830}
   - {fileID: 555549864}
   - {fileID: 1089359215}
   - {fileID: 1403094304}
