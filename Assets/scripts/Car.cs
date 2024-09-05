@@ -46,8 +46,7 @@ public class Car : MonoBehaviour
     {
         HandleEngineAudioSource();
         ApplyWheelPositions();
-        /*MoveOneUnitDown();
-        MoveOneUnitUp();*/
+        
     }
 
     private void HandleEngineAudioSource()
